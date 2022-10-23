@@ -1,5 +1,5 @@
 from Crypto.models import Favorites
-from Crypto.views import get_list_raw
+from Crypto.views_get import get_list_raw
 import ast
 
 

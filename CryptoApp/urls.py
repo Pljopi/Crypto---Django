@@ -20,8 +20,5 @@ urlpatterns = [
     path('', include('Crypto.urls')),
     path('Crypto/', include('Crypto.urls')),
     path('admin/', admin.site.urls),
-    path('explorer/', include('explorer.urls')),
-    path('list/', include('Crypto.urls')),
-    path('homepage/', include('Crypto.urls')),
-    path('register/', include('Crypto.urls')),
+
 ]

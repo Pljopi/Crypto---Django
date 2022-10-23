@@ -1,0 +1,57 @@
+ {% extends './home.html' %}
+
+{% block content %}
+ <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+
+    <p>
+        Select a currency pair to see the current price.
+    </p>
+
+    <form action={% url 'Crypto:display-price' %} method="post">
+        {% csrf_token %}
+        <div>
+            <label for="CriptoCurrency">
+             Choose a cripto currency:
+            </label>
+            <select id="crypto_currency" name="crypto_currency">       
+                    {% for currency in response %}
+            <option value="{{currency}}"/>{{currency}}
+                    {% endfor %}
+            </option>
+            {% csrf_token %}
+            </select>
+
+            <label for="id-of-input" class="custom-checkbox2">
+                <input type="checkbox" id="id-of-input" />
+                <i class="glyphicon glyphicon-star-empty"></i>
+                <i class="glyphicon glyphicon-star"></i>
+                <span>
+                    Add as favorite
+                </span>
+            </label>
+        </div>
+        <div>
+            <label for="Currency">
+                Choose a currency:
+            </label>
+            <select id="currency" name="currency">     
+                 {% for currency in response %}
+            <option value="{{currency}}"/>{{currency}}
+                    {% endfor %}
+            </option>
+            {% csrf_token %}
+            </select>
+
+            <label for="id-of-input2" class="custom-checkbox">
+                <input type="checkbox" id="id-of-input2" />
+                <i class="glyphicon glyphicon-star-empty"></i>
+                <i class="glyphicon glyphicon-star"></i>
+                <span>
+                    Add as favorite
+                </span>
+            </label>
+        </div>
+        <input type="submit" value="Show price">
+
+    </form>
+    {% endblock %}

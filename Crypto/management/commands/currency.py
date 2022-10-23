@@ -1,5 +1,7 @@
+from time import time
 from django.core.management.base import BaseCommand
 import Crypto.views_logic as logic
+from django.utils import timezone
 
 
 class Command(BaseCommand):
@@ -26,9 +28,12 @@ class Command(BaseCommand):
         cripto_currency = input('Enter the crypto currency: ')
         currency = input('Enter the currency: ')
         response = logic.get_price(cripto_currency, currency)
+        time = timezone.now().strftime("%Y-%m-%d %H:%M:%S")
         try:
-            print('The price of %s is %s %s' % (
-                cripto_currency, response['data']['amount'], currency))
+
+            print('The price of %s is %s %s at %s' %
+                  (cripto_currency, response['data']['amount'], currency, time))
+
         except:
             print('Please enter a valid currency pair')
 

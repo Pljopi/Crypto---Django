@@ -1,15 +1,15 @@
 {% extends "./home.html" %}
 
 {% block content %}
-    <div class="ListOfCurrencies">
+    <div class="favorites">
         <h1>
-            List of currencies
+        Your favorite currencies are:
         </h1>
         <p>
-            Click on a currency to add it to your favourite currenices
+            Click on a currency to remove it to your favourite currenices
         </p>
 
-        <form action={% url 'Crypto:add' %} method="POST">
+        <form action={% url 'Crypto:remove' %} method="POST">
             {% for currency in response %}
                 <input type="submit" name="favorite" class="button" value="{{currency}}" />
             {% endfor %}
@@ -20,3 +20,5 @@
         
     </div>
 {% endblock %}
+
+

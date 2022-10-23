@@ -1,5 +1,5 @@
-from Crypto.views import get_list_raw
-from Crypto.views import get_price_raw
+from Crypto.views_get import get_list_raw
+from Crypto.views_get import get_price_raw
 
 
 def get_price(cripto_currency, currency):
